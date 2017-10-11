@@ -1,0 +1,24 @@
+alias_maps = hash:/etc/aliases
+
+myhostname = submission
+mynetworks = 127.0.0.0/8
+
+default_transport = smtp:smtp-out
+relayhost = [smtp-out]
+
+smtpd_recipient_restrictions = permit_mynetworks,permit_sasl_authenticated,reject
+
+message_size_limit = 110240000
+
+smtp_tls_security_level = may
+smtp_tls_cert_file = /etc/ssl/certs/submission.crt
+smtp_tls_key_file = /etc/ssl/private/submission.key
+smtp_tls_CApath = /etc/ssl/certs/
+smtp_tls_loglevel = 1
+
+smtpd_tls_security_level = may
+smtpd_tls_ask_ccert = yes
+smtpd_tls_cert_file = /etc/ssl/certs/submission.crt
+smtpd_tls_key_file = /etc/ssl/private/submission.key
+smtpd_tls_loglevel = 1
+smtpd_tls_CAfile = /etc/ssl/certs/ca.crt.crl
