@@ -6,6 +6,6 @@ ADD postfix /etc/postfix
 
 EXPOSE 587
 
-RUN apt-get update; apt-get install -y postfix
+RUN apt-get update; apt-get install -y rsyslog postfix
 
-CMD /usr/sbin/rsyslogd; /usr/lib/postfix/master -d
+CMD /etc/init.d/rsyslog start && /usr/lib/postfix/sbin/master -d
