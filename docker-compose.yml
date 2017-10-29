@@ -3,12 +3,10 @@ services:
   dovecot:
     image: kzwin/dovecot-auth
     volumes:
-      - ./auth-dir:/var/postfix
       - /etc/dovecot-docker:/etc/dovecot-docker
   submission:
     image: kzwin/postfix-submission
     ports:
       - '587:587'
     volumes:
-      - ./auth-dir:/var/postfix
       - /etc/ssl:/etc/ssl
